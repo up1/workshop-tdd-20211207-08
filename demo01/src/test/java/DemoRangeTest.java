@@ -30,4 +30,12 @@ public class DemoRangeTest {
         assertTrue(result);
     }
 
+    @Test
+    @DisplayName("ต้องสิ้นสุดด้วย )")
+    public void case04() {
+        DemoRange demoRange = new DemoRange("[1,5)");
+        boolean result = demoRange.endWithInclude();
+        assertFalse(result);
+    }
+
 }
