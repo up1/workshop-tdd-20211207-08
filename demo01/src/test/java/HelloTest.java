@@ -8,6 +8,7 @@ public class HelloTest {
     @Test
     @DisplayName("สวัสดี first test case")
     public void case01(){
+        // A-A-A
         // Arrange
         Hello hello = new Hello();
         // Act
