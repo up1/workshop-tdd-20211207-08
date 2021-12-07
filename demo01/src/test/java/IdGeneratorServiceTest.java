@@ -1,22 +1,42 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class Random6 implements MyRandom {
+class StubRandom6 implements MyRandom {
     @Override
     public int get(int bound) {
         return 6;
     }
 }
 
+class SpyRandom implements MyRandom {
+    private int counter;
+    @Override
+    public int get(int bound) {
+        counter++;
+        return 0;
+    }
+    public boolean verify(int i) {
+        return counter == i;
+    }
+}
+
 class IdGeneratorServiceTest {
+
+    @Test
+    public void case_spy() {
+        SpyRandom random = new SpyRandom();
+        IdGeneratorService service = new IdGeneratorService();
+        service.setRandom(random);
+        service.process();
+        // Assert
+        assertTrue(random.verify(1));
+    }
 
     @Test
     void process() {
         // Dependency
-        MyRandom random = new Random6();
+        MyRandom random = new StubRandom6();
         // 1. Constructor Injection
         IdGeneratorService service = new IdGeneratorService();
         service.setRandom(random); // 2. Setter  Injection
