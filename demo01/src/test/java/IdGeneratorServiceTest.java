@@ -13,9 +13,7 @@ class SpyRandom implements MyRandom {
     private int counter;
     @Override
     public int get(int bound) {
-        if(bound >= 5) {
-            counter++;
-        }
+        if(bound >= 5) counter++;
         return 0;
     }
     public boolean verify(int i) {
@@ -24,7 +22,6 @@ class SpyRandom implements MyRandom {
 }
 
 class IdGeneratorServiceTest {
-
     @Test
     public void case_spy() {
         SpyRandom random = new SpyRandom();
