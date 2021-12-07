@@ -13,7 +13,9 @@ class SpyRandom implements MyRandom {
     private int counter;
     @Override
     public int get(int bound) {
-        counter++;
+        if(bound >= 5) {
+            counter++;
+        }
         return 0;
     }
     public boolean verify(int i) {
