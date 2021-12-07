@@ -1,9 +1,19 @@
 package com.example.demorest.products;
 
 public class ProductResponse{
-	private double price;
-	private String name;
+
 	private int id;
+	private String name;
+	private double price;
+
+	public ProductResponse() {
+	}
+
+	public ProductResponse(int id, String name, double price) {
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
 
 	public void setPrice(double price){
 		this.price = price;
