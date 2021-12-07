@@ -14,6 +14,6 @@ public class DemoRange {
     }
 
     public int getStartNumber() {
-        return 1;
+        return Integer.parseInt(this.input.charAt(1) + "");
     }
 }
