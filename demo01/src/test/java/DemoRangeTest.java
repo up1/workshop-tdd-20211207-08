@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoRangeTest {
 
@@ -36,6 +35,14 @@ public class DemoRangeTest {
         DemoRange demoRange = new DemoRange("[1,5)");
         boolean result = demoRange.endWithInclude();
         assertFalse(result);
+    }
+
+    @Test
+    @DisplayName("ต้องเริ่มต้นด้วย 1")
+    public void case05() {
+        DemoRange demoRange = new DemoRange("[1,5]");
+        int result = demoRange.getStartNumber();
+        assertEquals(1, result);
     }
 
 }

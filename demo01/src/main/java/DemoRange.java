@@ -12,4 +12,8 @@ public class DemoRange {
     public boolean endWithInclude() {
         return this.input.endsWith("]");
     }
+
+    public int getStartNumber() {
+        return 1;
+    }
 }
