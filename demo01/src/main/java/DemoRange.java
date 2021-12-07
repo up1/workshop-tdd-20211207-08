@@ -8,4 +8,8 @@ public class DemoRange {
     public boolean startWithInclude() {
         return this.input.startsWith("[");
     }
+
+    public boolean endWithInclude() {
+        return this.input.endsWith("]");
+    }
 }
