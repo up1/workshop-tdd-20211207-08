@@ -53,4 +53,12 @@ public class DemoRangeTest {
         assertEquals(2, result);
     }
 
+    @Test
+    @DisplayName("ต้องเริ่มต้นด้วย 2 จาก (1,5]")
+    public void case07() {
+        DemoRange demoRange = new DemoRange("(1,5]");
+        int result = demoRange.getStartNumber();
+        assertEquals(2, result);
+    }
+
 }
