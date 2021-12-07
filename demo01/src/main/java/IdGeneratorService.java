@@ -2,15 +2,19 @@ import java.util.Random;
 
 public class IdGeneratorService {
 
-    private Random random;
+    private MyRandom random;
 
-    public void setRandom(Random random) {
+    public void setRandom(MyRandom random) {
         this.random = random;
     }
 
     public String process() {
-        int number = random.nextInt(10);
+        int number = random.get(10);
         return "XYZ" + number;
     }
 
+}
+
+interface MyRandom {
+    int get(int bound);
 }

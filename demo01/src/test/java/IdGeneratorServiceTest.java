@@ -4,9 +4,9 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Random6 extends Random {
+class Random6 implements MyRandom {
     @Override
-    public int nextInt(int bound) {
+    public int get(int bound) {
         return 6;
     }
 }
@@ -16,7 +16,7 @@ class IdGeneratorServiceTest {
     @Test
     void process() {
         // Dependency
-        Random random = new Random6();
+        MyRandom random = new Random6();
         // 1. Constructor Injection
         IdGeneratorService service = new IdGeneratorService();
         service.setRandom(random); // 2. Setter  Injection
