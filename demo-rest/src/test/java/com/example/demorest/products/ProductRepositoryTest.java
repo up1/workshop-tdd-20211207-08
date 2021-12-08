@@ -29,5 +29,14 @@ public class ProductRepositoryTest {
         assertEquals("demo 01", result.get().getName());
     }
 
+    @Test
+    @DisplayName("Not Found product with id = 100")
+    public void case_02() {
+        // Act
+        Optional<Product> result = repository.findById(100);
+        // Assert
+        assertFalse(result.isPresent());
+    }
+
 
 }
