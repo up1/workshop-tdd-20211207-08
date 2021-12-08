@@ -18,8 +18,11 @@ public class ProductService {
         otherService.doSth();
         // Get data from database
         Optional<Product> result = repository.findById(id);
-        Product product = result.get();
-        // Map entity to response
-        return new ProductResponse( id, product.getName(), product.getPrice() );
+        if(result.isPresent()) {
+            Product product = result.get();
+            // Map entity to response
+            return new ProductResponse(id, product.getName(), product.getPrice());
+        }
+        throw new ProductNotFoundException("Product not found with id="+ id);
     }
 }

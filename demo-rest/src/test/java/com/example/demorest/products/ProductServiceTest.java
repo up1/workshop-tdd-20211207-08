@@ -34,4 +34,20 @@ public class ProductServiceTest {
         assertEquals(1, response.getId());
         assertEquals("Product 1", response.getName());
     }
+
+    @Test
+    @DisplayName("Product not found case with id=1 should throw exception ProductNotFoundException")
+    public void getById_not_found() {
+        // Arrange
+        when(repository.findById(1))
+                .thenReturn(Optional.empty());
+        // Act
+        try {
+            productService.getById(1);
+            // Fail
+            fail("Must throw exception");
+        } catch (ProductNotFoundException e) {
+            assertEquals("Product not found with id=1", e.getMessage());
+        }
+    }
 }
