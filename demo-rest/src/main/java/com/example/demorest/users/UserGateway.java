@@ -15,7 +15,7 @@ public class UserGateway {
     private String url;
 
     public User getById(int id) {
-        String path = url + "/users/" + id;
+        String path = String.format("%s/users/%d", url, id);
         User response = restTemplate.getForObject(path, User.class);
         return response;
     }
