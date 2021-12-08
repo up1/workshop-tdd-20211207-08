@@ -14,6 +14,11 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
+    public ProductService(OtherService otherService, ProductRepository repository) {
+        this.otherService = otherService;
+        this.repository = repository;
+    }
+
     public ProductResponse getById(int id) {
         otherService.doSth();
         // Get data from database
