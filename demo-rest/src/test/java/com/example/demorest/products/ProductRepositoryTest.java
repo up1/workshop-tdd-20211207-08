@@ -1,5 +1,6 @@
 package com.example.demorest.products;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -15,6 +16,7 @@ public class ProductRepositoryTest {
     private ProductRepository repository;
 
     @Test
+    @DisplayName("Found product with id = 1")
     public void case_01() {
         // Arrange
         Product product1 = new Product("demo 01", 100);
