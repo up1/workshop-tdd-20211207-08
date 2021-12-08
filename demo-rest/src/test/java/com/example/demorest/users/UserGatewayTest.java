@@ -19,6 +19,6 @@ public class UserGatewayTest {
         User response = userGateway.getById(1);
         // Assert
         assertEquals(1, response.getId());
-        assertEquals("Bret", response.getUsername());
+        assertEquals("Fake username", response.getUsername());
     }
 }
