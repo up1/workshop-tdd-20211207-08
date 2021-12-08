@@ -23,6 +23,7 @@ public class ProductRepositoryTest {
         repository.save(product1);
         // Act
         Optional<Product> result = repository.findById(1);
+        // Assert
         assertTrue(result.isPresent());
         assertEquals(1, result.get().getId());
         assertEquals("demo 01", result.get().getName());
