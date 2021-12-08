@@ -11,7 +11,9 @@ public class UserGateway {
     private RestTemplate restTemplate;
 
     public User getById(int id) {
-        return null;
+        String url ="https://jsonplaceholder.typicode.com/users/" + id;
+        User response = restTemplate.getForObject(url, User.class);
+        return response;
     }
 
 }
