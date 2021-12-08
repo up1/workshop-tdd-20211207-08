@@ -50,4 +50,18 @@ public class ProductServiceTest {
             assertEquals("Product not found with id=1", e.getMessage());
         }
     }
+
+    @Test
+    @DisplayName("[jUnit5] Product not found case with id=1 should throw exception ProductNotFoundException")
+    public void getById_not_found_with_junit5() {
+        // Arrange
+        when(repository.findById(1))
+                .thenReturn(Optional.empty());
+        // Act
+        Exception e = assertThrows(ProductNotFoundException.class,
+                ()-> {
+            productService.getById(1);
+        });
+        assertEquals("Product not found with id=1", e.getMessage());
+    }
 }
