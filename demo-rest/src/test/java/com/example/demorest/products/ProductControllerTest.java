@@ -14,17 +14,19 @@ public class ProductControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    private ProductRepository repository;
+
     @Test
     public void getProductById() {
+        // Arrange
+        Product product1 = new Product("Product 1", 100);
+        repository.save(product1);
+
+        // Act
         ProductResponse result = restTemplate.getForObject("/products/1", ProductResponse.class);
         assertEquals(1, result.getId());
         assertEquals("Product 1", result.getName());
     }
 
-    @Test
-    public void getProductById2() {
-        ProductResponse result = restTemplate.getForObject("/products/1", ProductResponse.class);
-        assertEquals(1, result.getId());
-        assertEquals("Product 1", result.getName());
-    }
 }
