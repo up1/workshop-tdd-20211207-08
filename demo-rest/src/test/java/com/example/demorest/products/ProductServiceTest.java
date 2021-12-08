@@ -1,5 +1,6 @@
 package com.example.demorest.products;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,7 @@ public class ProductServiceTest {
     private ProductRepository repository;
 
     @Test
+    @DisplayName("Success case with id=1")
     public void getById() {
         // Arrange
         Product product1 = new Product("Product 1", 100);
